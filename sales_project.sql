@@ -39,6 +39,7 @@ ON s.SalesPersonID = e.EmployeeID;
 
 -- Problem 4
 -- Find the top three sales persons by total sales
+/*
 SELECT 
 EmployeeID, FirstName, LastName,
 SUM(Price) AS sum_of_sales
@@ -46,9 +47,14 @@ FROM all_sales
 GROUP BY EmployeeID, FirstName, LastName
 ORDER BY sum_of_sales DESC
 LIMIT 3
-
+*/
 -- Problem 5
 -- Find the product that has the highest price
+
+SELECT *
+FROM products
+WHERE price = (SELECT MAX(price) FROM products)
+
 
 -- Problem 6
 -- Find the product that was sold the most times
