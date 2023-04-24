@@ -32,13 +32,20 @@ ON s.SalesPersonID = e.EmployeeID;
 
 -- Problem 3
 -- Find the average sale amount for each sales person
-SELECT EmployeeID, AVG(Price) AS avg_price
-FROM all_sales
-GROUP BY EmployeeID
-ORDER BY avg_price DESC
+-- SELECT EmployeeID, AVG(Price) AS avg_price
+-- FROM all_sales
+-- GROUP BY EmployeeID
+-- ORDER BY avg_price DESC
 
 -- Problem 4
 -- Find the top three sales persons by total sales
+SELECT 
+EmployeeID, FirstName, LastName,
+SUM(Price) AS sum_of_sales
+FROM all_sales
+GROUP BY EmployeeID, FirstName, LastName
+ORDER BY sum_of_sales DESC
+LIMIT 3
 
 -- Problem 5
 -- Find the product that has the highest price
