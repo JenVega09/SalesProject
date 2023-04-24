@@ -9,7 +9,7 @@
 
 -- 2a. Create a View for the query you made in Problem 1 named "all_sales"
 -- NOTE: You'll want to remove any duplicate columns to clean up your view!
-
+/*
 CREATE VIEW all_sales AS SELECT 
 e.EmployeeID,
 e.FirstName,
@@ -25,12 +25,17 @@ JOIN products p
 ON s.ProductID = p.ProductID
 JOIN employees e
 ON s.SalesPersonID = e.EmployeeID;
-
+*/
 -- 2b. Test your View by selecting all rows and columns from the View
-
+-- SELECT * 
+-- FROM all_sales; 
 
 -- Problem 3
 -- Find the average sale amount for each sales person
+SELECT EmployeeID, AVG(Price) AS avg_price
+FROM all_sales
+GROUP BY EmployeeID
+ORDER BY avg_price DESC
 
 -- Problem 4
 -- Find the top three sales persons by total sales
