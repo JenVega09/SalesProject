@@ -1,17 +1,33 @@
 -- Problem 1 & 2
 -- 1. Using JOINs in a single query, combine data from all three tables (employees, products, sales) to view all sales with complete employee and product information in one table.
-SELECT *
-FROM sales
-JOIN products
-ON sales.ProductID = products.ProductID
-JOIN employees
-ON sales.SalesPersonID = employees.EmployeeID
+-- SELECT *
+-- FROM sales
+-- JOIN products
+-- ON sales.ProductID = products.ProductID
+-- JOIN employees
+-- ON sales.SalesPersonID = employees.EmployeeID;
 
 -- 2a. Create a View for the query you made in Problem 1 named "all_sales"
 -- NOTE: You'll want to remove any duplicate columns to clean up your view!
 
+CREATE VIEW all_sales AS SELECT 
+e.EmployeeID,
+e.FirstName,
+e.LastName, 
+p.ProductID,
+p.Name,
+p.Price,
+s.SalesID,
+s.CustomerID,
+s.Quantity
+FROM sales s 
+JOIN products p
+ON s.ProductID = p.ProductID
+JOIN employees e
+ON s.SalesPersonID = e.EmployeeID;
 
 -- 2b. Test your View by selecting all rows and columns from the View
+
 
 -- Problem 3
 -- Find the average sale amount for each sales person
