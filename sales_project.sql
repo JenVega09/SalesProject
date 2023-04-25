@@ -74,14 +74,19 @@ LIMIT 3
 -- Problem 8
 -- Find the customer who spent the most money in purchased products
 
-SELECT CustomerID, SUM(Price) AS total_spent
-FROM all_sales
-GROUP BY CustomerID, ProductID
-ORDER BY total_spent DESC
-LIMIT 1
+-- SELECT CustomerID, SUM(Price) AS total_spent
+-- FROM all_sales
+-- GROUP BY CustomerID, ProductID
+-- ORDER BY total_spent DESC
+-- LIMIT 1
 
 -- Problem 9
 -- Find the total number of sales for each sales person
+
+SELECT EmployeeID, FirstName, LastName, SUM(Price) as total_sold
+FROM all_sales
+GROUP BY EmployeeID, FirstName, LastName
+ORDER BY total_sold DESC
 
 -- Problem 10
 -- Find the sales person who sold the most to the customer you found in Problem 8
