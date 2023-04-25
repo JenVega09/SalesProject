@@ -51,13 +51,17 @@ LIMIT 3
 -- Problem 5
 -- Find the product that has the highest price
 
-SELECT *
-FROM products
-WHERE price = (SELECT MAX(price) FROM products)
-
+-- SELECT *
+-- FROM products
+-- WHERE price = (SELECT MAX(price) FROM products)
 
 -- Problem 6
 -- Find the product that was sold the most times
+
+SELECT Name, ProductID, COUNT(*) AS most_sold_item
+FROM all_sales
+GROUP BY Name, ProductID
+ORDER BY most_sold_item DESC
 
 -- Problem 7
 -- Using a subquery, find all products that have a price higher than the average price for all products
