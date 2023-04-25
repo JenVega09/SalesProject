@@ -58,13 +58,18 @@ LIMIT 3
 -- Problem 6
 -- Find the product that was sold the most times
 
-SELECT Name, ProductID, COUNT(*) AS most_sold_item
-FROM all_sales
-GROUP BY Name, ProductID
-ORDER BY most_sold_item DESC
+-- SELECT Name, ProductID, COUNT(*) AS most_sold_item
+-- FROM all_sales
+-- GROUP BY Name, ProductID
+-- ORDER BY most_sold_item DESC
 
 -- Problem 7
 -- Using a subquery, find all products that have a price higher than the average price for all products
+
+SELECT ProductID, Name, Price
+FROM products
+WHERE Price > (SELECT AVG(Price) FROM Products)
+ORDER BY Price Desc
 
 -- Problem 8
 -- Find the customer who spent the most money in purchased products
