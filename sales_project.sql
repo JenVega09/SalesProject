@@ -66,13 +66,19 @@ LIMIT 3
 -- Problem 7
 -- Using a subquery, find all products that have a price higher than the average price for all products
 
-SELECT ProductID, Name, Price
-FROM products
-WHERE Price > (SELECT AVG(Price) FROM Products)
-ORDER BY Price Desc
+-- SELECT ProductID, Name, Price
+-- FROM products
+-- WHERE Price > (SELECT AVG(Price) FROM Products)
+-- ORDER BY Price Desc
 
 -- Problem 8
 -- Find the customer who spent the most money in purchased products
+
+SELECT CustomerID, SUM(Price) AS total_spent
+FROM all_sales
+GROUP BY CustomerID, ProductID
+ORDER BY total_spent DESC
+LIMIT 1
 
 -- Problem 9
 -- Find the total number of sales for each sales person
