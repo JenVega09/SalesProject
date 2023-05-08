@@ -35,33 +35,35 @@ ON s.SalesPersonID = e.EmployeeID;
 -- SELECT EmployeeID, AVG(Price) AS avg_price
 -- FROM all_sales
 -- GROUP BY EmployeeID
--- ORDER BY avg_price DESC
+-- ORDER BY avg_price DESC;
 
 -- Problem 4
 -- Find the top three sales persons by total sales
-/*
-SELECT 
+
+/* SELECT 
 EmployeeID, FirstName, LastName,
 SUM(Price) AS sum_of_sales
 FROM all_sales
 GROUP BY EmployeeID, FirstName, LastName
 ORDER BY sum_of_sales DESC
-LIMIT 3
+LIMIT 3;
 */
+
+
 -- Problem 5
 -- Find the product that has the highest price
 
 -- SELECT *
 -- FROM products
--- WHERE price = (SELECT MAX(price) FROM products)
+-- WHERE price = (SELECT MAX(price) FROM products);
 
 -- Problem 6
 -- Find the product that was sold the most times
 
--- SELECT Name, ProductID, COUNT(*) AS most_sold_item
+-- SELECT Name, Price, ProductID, COUNT(*) AS most_sold_item
 -- FROM all_sales
--- GROUP BY Name, ProductID
--- ORDER BY most_sold_item DESC
+-- GROUP BY Name, Price, ProductID
+-- ORDER BY most_sold_item DESC;
 
 -- Problem 7
 -- Using a subquery, find all products that have a price higher than the average price for all products
@@ -74,19 +76,19 @@ LIMIT 3
 -- Problem 8
 -- Find the customer who spent the most money in purchased products
 
--- SELECT CustomerID, SUM(Price) AS total_spent
--- FROM all_sales
--- GROUP BY CustomerID, ProductID
--- ORDER BY total_spent DESC
--- LIMIT 1
+SELECT CustomerID, EmployeeID, SUM(Price) AS total_spent
+FROM all_sales
+GROUP BY CustomerID, EmployeeID, ProductID
+ORDER BY total_spent DESC;
+-- LIMIT 1;
 
 -- Problem 9
 -- Find the total number of sales for each sales person
 
--- SELECT EmployeeID, FirstName, LastName, SUM(Price) as total_sold
--- FROM all_sales
--- GROUP BY EmployeeID, FirstName, LastName
--- ORDER BY total_sold DESC
+SELECT EmployeeID, FirstName, LastName, SUM(Price) as total_sold
+FROM all_sales
+GROUP BY EmployeeID, FirstName, LastName
+ORDER BY total_sold DESC;
 
 -- Problem 10
 -- Find the sales person who sold the most to the customer you found in Problem 8
